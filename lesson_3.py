@@ -5,8 +5,8 @@ from pymongo import MongoClient
 
 def db_update(ID, data):
       try:
-            vacancy.update_one({'_id': job_data['_id']},
-                               {'$set': job_data},
+            vacancy.update_one({'_id': ID},
+                               {'$set': data},
                                upsert=True)
       except:
             pass
@@ -23,7 +23,7 @@ page_next = True
 
 while page_next:
       # узнаём User-agent через запрос в браузере "chrome://version/"
-      headers = {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'}
+      headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'}
       url = 'https://hh.ru/' \
             'search/vacancy?clusters=true&enable_snippets=true&ored_clusters=true&text='+position+'&search_period=0&' \
             'page=' + str(number_page)
